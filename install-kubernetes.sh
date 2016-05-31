@@ -22,7 +22,11 @@ ETCD_ADVERTISE_CLIENT_URLS="http://master01:2379,http://master01:4001"
 EOF
 
 systemctl start etcd
+
+sleep 5
+
 etcdctl mk /atomic.io/network/config '{"Network":"172.17.0.0/16"}'
+
 systemctl start flanneld
 
 openssl genrsa -out /etc/kubernetes/serviceaccount.key 2048
