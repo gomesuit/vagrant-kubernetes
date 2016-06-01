@@ -35,6 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     host.vm.hostname = HOSTNAME
     host.vm.network "private_network", ip: PRIVATE_IP_ADDRESS
     host.vm.provision :shell, path: "set-hosts.sh"
+    host.vm.provision :shell, path: "install-kubernetes-node.sh"
   end
 
 end
