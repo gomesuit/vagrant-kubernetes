@@ -9,10 +9,10 @@ cat <<EOF > /etc/etcd/etcd.conf
 # [member]
 ETCD_NAME=default
 ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
-ETCD_LISTEN_CLIENT_URLS="http://master01:2379"
+ETCD_LISTEN_CLIENT_URLS="http://0.0.0.0:2379"
 
 #[cluster]
-ETCD_ADVERTISE_CLIENT_URLS="http://master01:2379,http://master01:4001"
+#ETCD_ADVERTISE_CLIENT_URLS="http://0.0.0.0:2379,http://0.0.0.0:4001"
 
 #[proxy]
 
