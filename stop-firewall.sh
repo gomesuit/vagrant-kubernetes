@@ -1,3 +1,4 @@
 #!/bin/sh
 
-systemctl stop firewalld.service
+systemctl disable firewalld
+systemctl stop firewalld
