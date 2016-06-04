@@ -57,8 +57,12 @@ KUBE_LOGTOSTDERR="--logtostderr=true"
 KUBE_LOG_LEVEL="--v=0"
 KUBE_ALLOW_PRIV="--allow-privileged=false"
 KUBE_MASTER="--master=http://master01:8080"
+KUBE_ETCD_SERVERS="--etcd_servers=http://master01:4001"
 EOF
 
+cat <<EOF > /etc/kubernetes/proxy
+KUBE_PROXY_ARGS="--master=http:///master01:8080"
+EOF
 
 systemctl start kube-apiserver
 systemctl start kube-controller-manager
