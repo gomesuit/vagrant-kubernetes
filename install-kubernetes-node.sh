@@ -1,17 +1,6 @@
 #!/bin/sh
 
-yum install -y kubernetes-node flannel
-
-systemctl enable flanneld
-
-cat <<EOF > /etc/sysconfig/flanneld
-FLANNEL_ETCD="http://master01:2379"
-FLANNEL_ETCD_KEY="/atomic.io/network"
-FLANNEL_OPTIONS="--iface=eth1"
-EOF
-
-systemctl start flanneld
-systemctl start docker
+yum install -y kubernetes-node
 
 cat <<EOF > /etc/kubernetes/config
 KUBE_LOGTOSTDERR="--logtostderr=true"
@@ -32,5 +21,9 @@ cat <<EOF > /etc/kubernetes/proxy
 KUBE_PROXY_ARGS="--master=http:///master01:8080"
 EOF
 
+systemctl start docker
 systemctl start kube-proxy
 systemctl start kubelet
+systemctl enable docker
+systemctl enable kube-proxy
+systemctl enable kubelet

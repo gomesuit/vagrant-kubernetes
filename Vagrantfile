@@ -16,7 +16,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     host.vm.network "private_network", ip: PRIVATE_IP_ADDRESS
     host.vm.provision :shell, path: "stop-firewall.sh"
     host.vm.provision :shell, path: "set-hosts.sh"
+    host.vm.provision :shell, path: "install-etcd.sh"
+    host.vm.provision :shell, path: "install-flanneld.sh"
     host.vm.provision :shell, path: "install-kubernetes-master.sh"
+    host.vm.provision :shell, path: "clone-kubernetes-sample.sh"
   end
 
   config.vm.define :node01 do |host|
@@ -27,6 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     host.vm.network "private_network", ip: PRIVATE_IP_ADDRESS
     host.vm.provision :shell, path: "stop-firewall.sh"
     host.vm.provision :shell, path: "set-hosts.sh"
+    host.vm.provision :shell, path: "install-flanneld.sh"
     host.vm.provision :shell, path: "install-kubernetes-node.sh"
   end
 
@@ -38,6 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     host.vm.network "private_network", ip: PRIVATE_IP_ADDRESS
     host.vm.provision :shell, path: "stop-firewall.sh"
     host.vm.provision :shell, path: "set-hosts.sh"
+    host.vm.provision :shell, path: "install-flanneld.sh"
     host.vm.provision :shell, path: "install-kubernetes-node.sh"
   end
 
