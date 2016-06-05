@@ -1,4 +1,4 @@
 #!/bin/sh
 
-systemctl disable firewalld
-systemctl stop firewalld
+#systemctl disable firewalld
+systemctl start firewalld
