@@ -27,7 +27,7 @@ KUBE_MASTER="--master=http://master01:8080"
 EOF
 
 cat <<EOF > /etc/kubernetes/proxy
-KUBE_PROXY_ARGS="--master=http:///master01:8080"
+KUBE_PROXY_ARGS="--master=http://master01:8080 --proxy-mode=iptables"
 EOF
 
 systemctl start kube-apiserver

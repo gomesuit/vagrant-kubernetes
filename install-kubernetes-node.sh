@@ -18,7 +18,7 @@ KUBELET_ARGS="--register-node=true"
 EOF
 
 cat <<EOF > /etc/kubernetes/proxy
-KUBE_PROXY_ARGS="--master=http:///master01:8080"
+KUBE_PROXY_ARGS="--master=http://master01:8080 --proxy-mode=iptables"
 EOF
 
 systemctl start docker
