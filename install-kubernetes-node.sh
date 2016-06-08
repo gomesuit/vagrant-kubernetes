@@ -4,7 +4,7 @@ yum install -y kubernetes-node
 
 cat <<EOF > /etc/kubernetes/config
 KUBE_LOGTOSTDERR="--logtostderr=true"
-KUBE_LOG_LEVEL="--v=0"
+KUBE_LOG_LEVEL="--v=10"
 KUBE_ALLOW_PRIV="--allow-privileged=false"
 KUBE_MASTER="--master=http://master01:8080"
 #KUBE_ETCD_SERVERS="--etcd_servers=http://master01:2379"
@@ -18,7 +18,7 @@ KUBELET_ARGS="--register-node=true"
 EOF
 
 cat <<EOF > /etc/kubernetes/proxy
-KUBE_PROXY_ARGS="--master=http://master01:8080 --proxy-mode=iptables"
+KUBE_PROXY_ARGS="--proxy-mode=iptables"
 EOF
 
 systemctl start docker

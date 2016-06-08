@@ -2,7 +2,7 @@
 
 yum install -y kubernetes
 
-openssl genrsa -out /etc/kubernetes/serviceaccount.key 2048
+#openssl genrsa -out /etc/kubernetes/serviceaccount.key 2048
 
 cat <<EOF > /etc/kubernetes/config
 KUBE_LOGTOSTDERR="--logtostderr=true"
@@ -14,11 +14,8 @@ EOF
 cat <<EOF > /etc/kubernetes/apiserver
 KUBE_API_ADDRESS="--insecure-bind-address=0.0.0.0"
 KUBE_ETCD_SERVERS="--etcd-servers=http://master01:2379"
-KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.254.0.0/16"
-#KUBE_SERVICE_ADDRESSES="--portal_net=172.16.0.0/16"
-#KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota"
-KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota"
-#KUBE_API_ARGS="--service_account_key_file=/etc/kubernetes/serviceaccount.key"
+KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.3.0.0/24"
+KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,LimitRanger,ServiceAccount,ResourceQuota"
 KUBE_API_ARGS="--secure-port=0"
 EOF
 
