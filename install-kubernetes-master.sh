@@ -15,7 +15,7 @@ cat <<EOF > /etc/kubernetes/apiserver
 KUBE_API_ADDRESS="--insecure-bind-address=0.0.0.0"
 KUBE_ETCD_SERVERS="--etcd-servers=http://master01:2379"
 KUBE_SERVICE_ADDRESSES="--service-cluster-ip-range=10.3.0.0/24"
-KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,LimitRanger,ServiceAccount,ResourceQuota"
+KUBE_ADMISSION_CONTROL="--admission-control=NamespaceLifecycle,LimitRanger,ResourceQuota"
 KUBE_API_ARGS="--secure-port=0"
 EOF
 
