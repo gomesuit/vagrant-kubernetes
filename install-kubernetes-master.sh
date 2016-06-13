@@ -48,4 +48,4 @@ kubectl cluster-info
 # install kubernetes-dashboard
 kubectl create namespace kube-system
 #kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
-kubectl create -f https://rawgit.com/kubernetes/dashboard/v1.0.1/src/deploy/kubernetes-dashboard.yaml
+#kubectl create -f https://rawgit.com/kubernetes/dashboard/v1.0.1/src/deploy/kubernetes-dashboard.yaml
