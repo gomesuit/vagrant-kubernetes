@@ -21,9 +21,9 @@ kubectl get svc apache -o yaml
 
 ## WEBサーバの動作確認
 ```
-curl http://192.168.33.10:[NodePort]
-curl http://192.168.33.20:[NodePort]
-curl http://192.168.33.30:[NodePort]
+curl http://192.168.33.10:30000
+curl http://192.168.33.20:30000
+curl http://192.168.33.30:30000
 ```
 
 ## podとserviceの削除
