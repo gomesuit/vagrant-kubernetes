@@ -2,7 +2,7 @@
 
 yum install -y etcd
 
-cat <<EOF > /etc/etcd/etcd.conf
+tee /etc/etcd/etcd.conf <<-EOF
 ETCD_NAME=default
 ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
 #ETCD_LISTEN_PEER_URLS="http://localhost:2380"
@@ -15,7 +15,7 @@ systemctl enable etcd
 
 sleep 5
 
-cat <<EOF > ~/flannel.json
+tee ~/flannel.json <<-EOF
 {
     "Network": "10.2.0.0/16",
     "Backend": {

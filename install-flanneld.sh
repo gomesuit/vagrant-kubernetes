@@ -2,7 +2,7 @@
 
 yum install -y flannel
 
-cat <<EOF > /etc/sysconfig/flanneld
+tee /etc/sysconfig/flanneld <<-EOF
 FLANNEL_ETCD="http://master01:2379"
 FLANNEL_ETCD_KEY="/atomic.io/network"
 FLANNEL_OPTIONS="--iface=eth1"
