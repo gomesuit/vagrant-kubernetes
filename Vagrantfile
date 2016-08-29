@@ -4,9 +4,11 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.synced_folder ".", "/home/vagrant/sync", disabled: true
+  config.vm.synced_folder ".", "/vagrant", disabled: true
 
   config.vm.box = "centos/7"
+
+  config.ssh.insert_key = false
 
   config.vm.define :master01 do |host|
     _HOSTNAME = "master01"
